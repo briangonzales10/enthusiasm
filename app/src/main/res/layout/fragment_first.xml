@@ -15,6 +15,19 @@
         android:padding="16dp"
         android:visibility="visible">
 
+        <TextView
+            android:id="@+id/result_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:scrollbars="vertical"
+            android:text="@string/results_view"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            app:layout_constraintBottom_toTopOf="@+id/textview_first"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textview_first"
@@ -27,21 +40,21 @@
             android:text="0"
             android:textColor="@android:color/white"
             android:textSize="72sp"
+            app:layout_constraintTop_toBottomOf="@id/result_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3" />
+            app:layout_constraintStart_toStartOf="parent" />
+
 
         <Button
-            android:id="@+id/toast_button"
+            android:id="@+id/recognize_mic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:backgroundTint="@color/buttonBackground"
-            android:text="@string/toast_button_text"
+            android:text="@string/start_mic"
             android:textColor="#16619C"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,10 +69,13 @@
             android:backgroundTint="@color/buttonBackground"
             android:text="@string/count_button_text"
             android:textColor="@color/buttonTextColor"
+            app:iconPadding="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/random_button"
-            app:layout_constraintStart_toEndOf="@+id/toast_button"
-            app:layout_constraintTop_toBottomOf="@+id/textview_first" />
+            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintStart_toEndOf="@+id/recognize_mic"
+            app:layout_constraintTop_toBottomOf="@+id/textview_first"
+            app:layout_constraintVertical_bias="0.444" />
 
         <Button
             android:id="@+id/random_button"
