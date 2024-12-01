@@ -18,43 +18,25 @@ public class FirstFragment extends Fragment {
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
+            @NonNull LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
 
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         return binding.getRoot();
-
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.randomButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int currentCount = Integer.parseInt(binding.textviewFirst.getText().toString());
-                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action =
-                        FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount);
+        binding.randomButton.setOnClickListener(view2 -> {
+            int currentCount = Integer.parseInt(binding.textviewFirst.getText().toString());
+            FirstFragmentDirections.ActionFirstFragmentToSecondFragment action =
+                    FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount);
 
-                NavHostFragment.findNavController(FirstFragment.this).navigate(action);
-            }
+            NavHostFragment.findNavController(FirstFragment.this).navigate(action);
         });
 
-        binding.toastButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast myToast = Toast.makeText(getActivity(), "Hello Toast!", Toast.LENGTH_SHORT);
-                myToast.show();
-            }
-        });
-
-        binding.countButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                countMe(view);
-            }
-        });
+        binding.countButton.setOnClickListener(this::countMe);
     }
 
     @Override
